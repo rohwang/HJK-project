@@ -1,0 +1,19 @@
+# Unity 기본
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+Assets/AssetStoreTools*
+UserSettings/
+MemoryCaptures/
+Logs/
+
+# VS Code (사용 시)
+.vscode/
+
+# Mac 시스템 파일
+.DS_Store
+
+# Windows 시스템 파일
+Thumbs.db
