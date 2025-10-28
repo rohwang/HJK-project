@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class playerJump : MonoBehaviour
 {
+    public playerDash dash;
+
     [Header("지면 체크")]
     public Transform groundCheck;        // 지면 체크용 위치 (플레이어 발 밑에 빈 GameObject)
     public float groundCheckRadius = 0.5f;
@@ -28,9 +30,20 @@ public class playerJump : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
     }
+    private void FixedUpdate()
+    {
+        if (dash.isDash)
+        {
+            return;
+        }
+    }
 
     void Update()
     {
+        if (dash.isDash)
+        {
+            return;
+        }
         Jump();
     }
 }

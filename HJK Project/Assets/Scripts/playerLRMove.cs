@@ -3,7 +3,9 @@ using static UnityEngine.Rendering.DebugUI.Table;
 
 public class playerLRMove : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f;
+    public playerDash dash;
+
+    [SerializeField] private float moveSpeed = 3f;
     Rigidbody2D rb;
     void Start()
     {
@@ -29,9 +31,20 @@ public class playerLRMove : MonoBehaviour
             transform.rotation = Quaternion.Euler(rot.x, 0, rot.z);
         }
     }
+    private void FixedUpdate()
+    {
+        if (dash.isDash)
+        {
+            return;
+        }
+    }
 
     void Update()
     {
+        if (dash.isDash)
+        {
+            return;
+        }
         Move();
     }
 }
