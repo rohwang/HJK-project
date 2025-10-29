@@ -5,7 +5,7 @@ public class playerLRMove : MonoBehaviour
 {
     public playerDash dash;
 
-    [SerializeField] private float moveSpeed = 3f;
+    public float moveSpeed = 3f;
     Rigidbody2D rb;
     void Start()
     {

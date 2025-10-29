@@ -8,9 +8,13 @@ public class playerDash : MonoBehaviour
     [SerializeField] float dashForce = 15f;
     [SerializeField] float dashCooldown = 1f;
     [SerializeField] float dashTime = 0.3f;
-    bool canDash = true;
+    public bool canDash = true;
+
+    [Header("스태미나 바")]
+    [SerializeField] SliderBar stamina;
 
     public bool isDash = false;
+    public bool canDash2 = true;
 
     TrailRenderer tr;
     Rigidbody2D rb;
@@ -19,12 +23,13 @@ public class playerDash : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         tr = GetComponent<TrailRenderer>();
+        tr.emitting = false;
     }
 
     void ShiftDash()
     {
         KeyCode dashKey = KeyCode.LeftShift;
-        if (Input.GetKeyDown(dashKey) && canDash)
+        if (Input.GetKeyDown(dashKey) && canDash && canDash2)
         {
             StartCoroutine(Dash());
         }
@@ -41,6 +46,9 @@ public class playerDash : MonoBehaviour
     {
         canDash = false;
         isDash = true;
+
+        stamina.Dash();                     //  대쉬 시 스태미나 감소
+        stamina.recoveryCooldown = Time.time +1f;
 
         tr.emitting = true;                      // 트레일 렌더러 활성화
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);    // 적 통과 기능 추가

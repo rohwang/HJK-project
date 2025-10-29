@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class playerJump : MonoBehaviour
 {
+    Rigidbody2D rb;
     public playerDash dash;
+    public SliderBar stamina;
 
     [Header("지면 체크")]
     public Transform groundCheck;        // 지면 체크용 위치 (플레이어 발 밑에 빈 GameObject)
@@ -12,8 +14,8 @@ public class playerJump : MonoBehaviour
 
     [Header("점프 설정")]
     [SerializeField] float jumpForce = 7f;         // 점프 힘
+    public bool canJump2 = true;
 
-    Rigidbody2D rb;
 
     void Start()
     {
@@ -25,9 +27,10 @@ public class playerJump : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
         // 2) 점프 입력 처리
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded && canJump2)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            stamina.Jump();                     //  점프 시 스태미나 감소
         }
     }
     private void FixedUpdate()
