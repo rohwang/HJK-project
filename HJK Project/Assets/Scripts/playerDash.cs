@@ -50,7 +50,6 @@ public class playerDash : MonoBehaviour
         isDash = true;
 
         stamina.Dash();                     //  대쉬 시 스태미나 감소
-        stamina.recoveryCooldown = Time.time +1f;
 
         anim.SetBool("Idle", false);
         anim.SetBool("Run", false);
@@ -65,12 +64,10 @@ public class playerDash : MonoBehaviour
         if(rot==0 || rot==-180) //  오른쪽 방향 대쉬
         {
             rb.linearVelocity = new Vector2(transform.localScale.x * dashForce, 0f);
-            Debug.Log("대쉬 오른쪽");
         }
         else // 왼쪽 방향 대쉬
         {
             rb.linearVelocity = new Vector2(transform.localScale.x * -dashForce, 0f);
-            Debug.Log("대쉬 왼쪽");
         }
 
         yield return new WaitForSeconds(dashTime);

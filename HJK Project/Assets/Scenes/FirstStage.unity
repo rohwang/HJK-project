@@ -313,6 +313,7 @@ MonoBehaviour:
     m_Bits: 1024
   jumpForce: 14
   canJump2: 1
+  isJump: 0
 --- !u!114 &73716083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -778,7 +779,6 @@ MonoBehaviour:
   dash: {fileID: 73716083}
   jump: {fileID: 73716082}
   move: {fileID: 73716079}
-  recoveryCooldown: 0
   isGameOver: 0
 --- !u!1 &519420028
 GameObject:

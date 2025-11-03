@@ -50,6 +50,7 @@ public class playerLRMove : MonoBehaviour
 
         float horiz = Input.GetAxisRaw("Horizontal"); // -1, 0, 1
         // 걷기 및 IDLE 애니메이션 재생
+
         if (horiz != 0)
         {
                 anim.SetBool("Idle", false);

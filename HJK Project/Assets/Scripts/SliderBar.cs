@@ -25,10 +25,10 @@ public class SliderBar : MonoBehaviour
     [Header("이동")]
     [SerializeField] playerLRMove move;
 
-    public bool canRecover => Time.time >= recoveryCooldown;
-    public float recoveryCooldown = 0f;
-
+    bool isRecovering = false;
+    private float lastStaminaUsedTime;
     public bool isGameOver = false; 
+
     void Start()
     {
         hp.maxValue = 100;
@@ -41,7 +41,13 @@ public class SliderBar : MonoBehaviour
         stamina.value = stamina.maxValue;
         staminaD.value = staminaD.maxValue;
     }
-
+    void OnStaminaUsed()
+    {
+        if (!isRecovering)
+        {
+            lastStaminaUsedTime = Time.time;
+        }
+    }
     void RestrictDashbyStamina()  //  스태미나 대쉬 제한
     {
         if (stamina.value <= 20)
@@ -91,32 +97,6 @@ public class SliderBar : MonoBehaviour
             hpD.value = Rcur;
         }
     }
-
-    public void Dash()
-    {
-        stamina.value -= 20;
-    }
-
-    public void Jump()
-    {
-        stamina.value -= 10;
-    }
-
-    // 0부터 1까지의 수치를 준비하고 0 미만이면 0으로 설정, 대쉬마다 0으로 돌린 뒤 1초 뒤 1로 설정,
-    // 하지만 잠깐잠깐 1로 변경되는 단점을 고쳐야 함. 예를 들어 3번 대쉬했을 때 첫 대쉬에서 1초 뒤 1로 설정되면 안 됨
-
-    IEnumerator RecoverStamina()
-    {
-        if(dash.isDash)
-        {
-            yield break;
-        }
-            if (dash.canDash && stamina.value < stamina.maxValue && canRecover)
-            {
-            yield return new WaitForSeconds(1f);
-            stamina.value += 10 * Time.deltaTime;
-            }
-    }
     IEnumerator DelayStamina(float Rcur, float Dcur)
     {
         if (Rcur < Dcur)
@@ -128,8 +108,50 @@ public class SliderBar : MonoBehaviour
         {
             staminaD.value = Rcur;
         }
+    }// 스태미나 딜레이 바 감소 코루틴
+
+    Coroutine staminaCoroutine;
+    public void Dash()
+    {
+        stamina.value -= 20;
+        
+        OnStaminaUsed();
     }
 
+    public void Jump()
+    {
+        stamina.value -= 10;
+
+        OnStaminaUsed();
+    }
+
+    // 0부터 1까지의 수치를 준비하고 0 미만이면 0으로 설정, 대쉬마다 0으로 돌린 뒤 1초 뒤 1로 설정,
+    // 하지만 잠깐잠깐 1로 변경되는 단점을 고쳐야 함. 예를 들어 3번 대쉬했을 때 첫 대쉬에서 1초 뒤 1로 설정되면 안 됨
+
+    IEnumerator RecoverStamina()
+    {
+        isRecovering = true;
+
+        // 1초 대기, 도중에 다시 스태미나 사용했으면 타이머 초기화
+        while (Time.time - lastStaminaUsedTime < 2.5f)
+        {
+            yield return null;
+        }
+
+        while (stamina.value < stamina.maxValue)
+        {
+            // 도중에 대시나 점프하면 다시 초기화
+            if (dash.isDash || jump.isJump)
+            {
+                isRecovering = false;
+                yield break;
+            }
+            stamina.value += 0.1f * Time.deltaTime;
+            yield return null;
+        }
+        isRecovering = false;
+    }
+    
     void Update()
     {
         if (isGameOver) //  게임 오버 시 슬라이더 정지
@@ -153,6 +175,7 @@ public class SliderBar : MonoBehaviour
 
             StartCoroutine(DelayHP(hp.value, hpD.value));
             StartCoroutine(DelayStamina(stamina.value, staminaD.value));
+
             StartCoroutine(RecoverStamina());
         }
     }

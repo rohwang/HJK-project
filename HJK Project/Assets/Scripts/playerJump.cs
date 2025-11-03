@@ -17,6 +17,7 @@ public class playerJump : MonoBehaviour
     [Header("점프 설정")]
     [SerializeField] float jumpForce = 7f;         // 점프 힘
     public bool canJump2 = true;
+    public bool isJump = false;
 
 
     void Start()
@@ -32,13 +33,12 @@ public class playerJump : MonoBehaviour
         // 2) 점프 입력 처리
         if (Input.GetButtonDown("Jump") && isGrounded && canJump2)
         {
+            isJump = true;
             anim.SetBool("Idle", false);
             anim.SetBool("Run", false);
 
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             stamina.Jump();                     //  점프 시 스태미나 감소
-
-            
         }
     }
     private void FixedUpdate()
@@ -55,6 +55,7 @@ public class playerJump : MonoBehaviour
         {
             return;
         }
+
         Jump();
         
         if (rb.linearVelocity.y > 0.3f)    // 점프 애니메이션 실행
@@ -62,10 +63,14 @@ public class playerJump : MonoBehaviour
                 anim.ResetTrigger("Fall");
                 anim.SetTrigger("Jump");
             }
-            else if (rb.linearVelocity.y < 0.3f)
+            else if (rb.linearVelocity.y < -0.3f)
             {
                 anim.ResetTrigger("Jump");
                 anim.SetTrigger("Fall");
+            }
+            else
+            {
+                isJump = false;
             }
     }
 }
