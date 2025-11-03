@@ -130,13 +130,14 @@ public class SliderBar : MonoBehaviour
 
     IEnumerator RecoverStamina()
     {
-        isRecovering = true;
 
         // 1초 대기, 도중에 다시 스태미나 사용했으면 타이머 초기화
         while (Time.time - lastStaminaUsedTime < 2.5f)
         {
             yield return null;
         }
+
+        isRecovering = true;
 
         while (stamina.value < stamina.maxValue)
         {
@@ -146,7 +147,7 @@ public class SliderBar : MonoBehaviour
                 isRecovering = false;
                 yield break;
             }
-            stamina.value += 0.1f * Time.deltaTime;
+            stamina.value += 0.03f * Time.deltaTime;
             yield return null;
         }
         isRecovering = false;
@@ -175,8 +176,10 @@ public class SliderBar : MonoBehaviour
 
             StartCoroutine(DelayHP(hp.value, hpD.value));
             StartCoroutine(DelayStamina(stamina.value, staminaD.value));
-
-            StartCoroutine(RecoverStamina());
+            if (!isRecovering)
+            {
+                StartCoroutine(RecoverStamina());
+            }
         }
     }
 }
