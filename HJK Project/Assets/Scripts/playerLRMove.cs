@@ -7,9 +7,11 @@ public class playerLRMove : MonoBehaviour
 
     public float moveSpeed = 3f;
     Rigidbody2D rb;
+    Animator anim;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     private void Move()
@@ -18,7 +20,6 @@ public class playerLRMove : MonoBehaviour
         float horiz = Input.GetAxisRaw("Horizontal"); // -1, 0, 1
         rb.linearVelocity = new Vector2(horiz * moveSpeed, rb.linearVelocity.y);
 
-        // 걷기 애니메이션 재생
         
         Vector3 rot = transform.rotation.eulerAngles;
 
@@ -46,5 +47,18 @@ public class playerLRMove : MonoBehaviour
             return;
         }
         Move();
+
+        float horiz = Input.GetAxisRaw("Horizontal"); // -1, 0, 1
+        // 걷기 및 IDLE 애니메이션 재생
+        if (horiz != 0)
+        {
+                anim.SetBool("Idle", false);
+                anim.SetBool("Run", true);
+        }
+        else
+        {
+            anim.SetBool("Run", false);
+            anim.SetBool("Idle", true);
+        }
     }
 }

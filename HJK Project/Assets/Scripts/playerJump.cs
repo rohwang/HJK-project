@@ -3,6 +3,8 @@ using UnityEngine;
 public class playerJump : MonoBehaviour
 {
     Rigidbody2D rb;
+    Animator anim;
+
     public playerDash dash;
     public SliderBar stamina;
 
@@ -20,6 +22,7 @@ public class playerJump : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
     private void Jump()
     {
@@ -29,8 +32,13 @@ public class playerJump : MonoBehaviour
         // 2) 점프 입력 처리
         if (Input.GetButtonDown("Jump") && isGrounded && canJump2)
         {
+            anim.SetBool("Idle", false);
+            anim.SetBool("Run", false);
+
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             stamina.Jump();                     //  점프 시 스태미나 감소
+
+            
         }
     }
     private void FixedUpdate()
@@ -48,5 +56,16 @@ public class playerJump : MonoBehaviour
             return;
         }
         Jump();
+        
+        if (rb.linearVelocity.y > 0.3f)    // 점프 애니메이션 실행
+            {
+                anim.ResetTrigger("Fall");
+                anim.SetTrigger("Jump");
+            }
+            else if (rb.linearVelocity.y < 0.3f)
+            {
+                anim.ResetTrigger("Jump");
+                anim.SetTrigger("Fall");
+            }
     }
 }
