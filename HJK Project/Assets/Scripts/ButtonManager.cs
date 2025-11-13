@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
+    bool bgon = false;
 
     [SerializeField] GameObject BackGround;
     void Start()
@@ -21,14 +22,25 @@ public class ButtonManager : MonoBehaviour
         // Application.Quit();  //  ºôµåÆÄÀÏ¿ë
     }
 
-    public void SettingButtonCLick()
+    public void SettingButtonClick()
     {
         BackGround.SetActive(true);
+        bgon = true;
     }
 
     public void BackButtonClick()
     {
         BackGround.SetActive(false);
+        bgon = false;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            if (bgon) BackButtonClick();
+            else SettingButtonClick();
+        }
     }
 
 }

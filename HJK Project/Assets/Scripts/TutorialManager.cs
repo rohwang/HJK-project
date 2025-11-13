@@ -23,17 +23,11 @@ public class TutorialManager : MonoBehaviour
     }
     void WASD_USED()
     {
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
-        {
-            LRMove.SetActive(false);
-        }
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) LRMove.SetActive(false);
     }
     void Jump_Used()
     {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            Jump.SetActive(false);
-        }
+        if (Input.GetKey(KeyCode.Space)) Jump.SetActive(false);
     }
     void Update()
     {

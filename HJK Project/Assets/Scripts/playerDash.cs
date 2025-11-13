@@ -31,17 +31,11 @@ public class playerDash : MonoBehaviour
     void ShiftDash()
     {
         KeyCode dashKey = KeyCode.LeftShift;
-        if (Input.GetKeyDown(dashKey) && canDash && canDash2)
-        {
-            StartCoroutine(Dash());
-        }
+        if (Input.GetKeyDown(dashKey) && canDash && canDash2) StartCoroutine(Dash());
     }
     private void FixedUpdate()
     {
-        if (isDash)
-        {
-            return;
-        }
+        if (isDash) return;
     }
 
     IEnumerator Dash()
@@ -61,14 +55,8 @@ public class playerDash : MonoBehaviour
         rb.gravityScale = 0f;                          //   대쉬 중에는 중력의 영향을 받지 않는다.
         float rot = transform.rotation.y;
 
-        if(rot==0 || rot==-180) //  오른쪽 방향 대쉬
-        {
-            rb.linearVelocity = new Vector2(transform.localScale.x * dashForce, 0f);
-        }
-        else // 왼쪽 방향 대쉬
-        {
-            rb.linearVelocity = new Vector2(transform.localScale.x * -dashForce, 0f);
-        }
+        if(rot==0 || rot==-180) rb.linearVelocity = new Vector2(transform.localScale.x * dashForce, 0f); //  오른쪽 방향 대쉬
+        else rb.linearVelocity = new Vector2(transform.localScale.x * -dashForce, 0f); // 왼쪽 방향 대쉬
 
         yield return new WaitForSeconds(dashTime);
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), false);    //  적 통과 해제
@@ -83,10 +71,7 @@ public class playerDash : MonoBehaviour
 
     void Update()
     {
-        if (isDash)
-        {
-            return;
-        }
+        if (isDash) return;
         ShiftDash();
     }
 }

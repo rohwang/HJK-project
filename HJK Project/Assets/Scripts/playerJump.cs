@@ -43,18 +43,12 @@ public class playerJump : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (dash.isDash)
-        {
-            return;
-        }
+        if (dash.isDash) return;
     }
 
     void Update()
     {
-        if (dash.isDash)
-        {
-            return;
-        }
+        if (dash.isDash) return;
 
         Jump();
         
@@ -63,14 +57,11 @@ public class playerJump : MonoBehaviour
                 anim.ResetTrigger("Fall");
                 anim.SetTrigger("Jump");
             }
-            else if (rb.linearVelocity.y < -0.3f)
+            else if (rb.linearVelocity.y < -0.5f)
             {
                 anim.ResetTrigger("Jump");
                 anim.SetTrigger("Fall");
             }
-            else
-            {
-                isJump = false;
-            }
+            else isJump = false;
     }
 }

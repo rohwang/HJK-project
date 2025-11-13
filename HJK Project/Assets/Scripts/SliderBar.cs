@@ -18,9 +18,11 @@ public class SliderBar : MonoBehaviour
 
     [Header("대쉬")]
     [SerializeField] playerDash dash;
+    [SerializeField] float dashStaminaDecrease = 20f;
 
     [Header("점프")]
     [SerializeField] playerJump jump;
+    [SerializeField] float jumpStaminaDecrease = 10f;
 
     [Header("이동")]
     [SerializeField] playerLRMove move;
@@ -31,11 +33,12 @@ public class SliderBar : MonoBehaviour
 
     void Start()
     {
+        // 체력 및 체력 딜레이바 초기값
         hp.maxValue = 100;
         hpD.maxValue = 100;
         hp.value = hp.maxValue;
         hpD.value = hpD.maxValue;
-
+        // 스태미나 및 스태미나 딜레이바 초기값
         stamina.maxValue = 100;
         staminaD.maxValue = 100;
         stamina.value = stamina.maxValue;
@@ -43,45 +46,24 @@ public class SliderBar : MonoBehaviour
     }
     void OnStaminaUsed()
     {
-        if (!isRecovering)
-        {
-            lastStaminaUsedTime = Time.time;
-        }
+        if (!isRecovering) lastStaminaUsedTime = Time.time;
     }
     void RestrictDashbyStamina()  //  스태미나 대쉬 제한
     {
-        if (stamina.value <= 20)
-        {
-            dash.canDash2 = false;
-        }
-        else
-        {
-            dash.canDash2 = true;
-        }
+        if (stamina.value <= 20) dash.canDash2 = false;
+        else dash.canDash2 = true;
     }
 
     void RestrictJumpbyStamina()    // 스태미나 점프 제한
     {
-        if (stamina.value <= 20)
-        {
-            jump.canJump2 = false;
-        }
-        else
-        {
-            jump.canJump2 = true;
-        }
+        if (stamina.value <= 20) jump.canJump2 = false;
+        else jump.canJump2 = true;
     }
 
     public void RestrictMovebyStamina() //  스태미나 이동 제한
     {
-        if (stamina.value <= 20)
-        {
-            move.moveSpeed = 2f;
-        }
-        else
-        {
-            move.moveSpeed = 3f;
-        }
+        if (stamina.value <= 20) move.moveSpeed = 2f;
+        else move.moveSpeed = 3f;
     }
 
 
@@ -91,11 +73,7 @@ public class SliderBar : MonoBehaviour
         {
             yield return new WaitForSeconds(0.5f);
             hpD.value -= 3 * Time.deltaTime;
-        }
-        else
-        {
-            hpD.value = Rcur;
-        }
+        } else hpD.value = Rcur;
     }
     IEnumerator DelayStamina(float Rcur, float Dcur)
     {
@@ -103,25 +81,18 @@ public class SliderBar : MonoBehaviour
         {
             yield return new WaitForSeconds(0.3f);
             staminaD.value -= 5 * Time.deltaTime;
-        }
-        else
-        {
-            staminaD.value = Rcur;
-        }
-    }// 스태미나 딜레이 바 감소 코루틴
+        } else staminaD.value = Rcur;
+    }   // 스태미나 딜레이 바 감소 코루틴
 
-    Coroutine staminaCoroutine;
     public void Dash()
     {
-        stamina.value -= 20;
-        
+        stamina.value -= dashStaminaDecrease;    //  대쉬 스태미나 소모량
         OnStaminaUsed();
     }
 
     public void Jump()
     {
-        stamina.value -= 10;
-
+        stamina.value -= jumpStaminaDecrease;    //  점프 스태미나 소모량
         OnStaminaUsed();
     }
 
@@ -132,10 +103,7 @@ public class SliderBar : MonoBehaviour
     {
 
         // 1초 대기, 도중에 다시 스태미나 사용했으면 타이머 초기화
-        while (Time.time - lastStaminaUsedTime < 2.5f)
-        {
-            yield return null;
-        }
+        while (Time.time - lastStaminaUsedTime < 2.5f) yield return null;
 
         isRecovering = true;
 
@@ -155,28 +123,26 @@ public class SliderBar : MonoBehaviour
     
     void Update()
     {
-        if (isGameOver) //  게임 오버 시 슬라이더 정지
-        {
-            return;
-        }
+        if (isGameOver) return; //  게임 오버 시 슬라이더 정지
+
         else if (hp.value <= 0) //  체력 0일 시 게임 오버
         {
             isGameOver = true;
             return;
         }
-        else if (stamina.value < 0) //  스태미나 0보다 작으면 0으로 돌리기
-        {
-            stamina.value = 0;
-        }
+        else if (stamina.value < 0) stamina.value = 0; //  스태미나 0보다 작으면 0으로 돌리기
+
         else
         {
-            RestrictDashbyStamina();
-            RestrictJumpbyStamina();
-            RestrictMovebyStamina();
+            RestrictDashbyStamina();    //  소강 상태서 대쉬 제한
+            RestrictJumpbyStamina();    //  소강 상태서 점프 제한
+            RestrictMovebyStamina();    //  소강 상태서 이동 제한
+            //  공격 제한
 
-            StartCoroutine(DelayHP(hp.value, hpD.value));
-            StartCoroutine(DelayStamina(stamina.value, staminaD.value));
-                StartCoroutine(RecoverStamina());
+            StartCoroutine(DelayHP(hp.value, hpD.value));   // 체력 딜레이 바
+            StartCoroutine(DelayStamina(stamina.value, staminaD.value));    //  스태미나 딜레이 바
+
+            StartCoroutine(RecoverStamina());   //  스태미나 회복
         }
     }
 }

@@ -4,19 +4,33 @@ using UnityEngine.UI;
 
 public class backgroundControl : MonoBehaviour
 {
-    [Header("UI 배경")]
-    [SerializeField] Image UIbg;
+    [Header("설정 배경")]
+    [SerializeField] GameObject SettBG;
+
+    [Header("데스 배경")]
+    [SerializeField] GameObject DeathBG;
+
+    [SerializeField] ButtonManager buttonManager;
 
     private void Start()
     {
-        UIbgOff();
+        SettbgOff();
+        DeathbgOff();
     }
-    public void UIbgOn()
+    public void SettbgOn()
     {
-        UIbg.enabled = true;
+        SettBG.SetActive(true);
     }
-    public void UIbgOff()
+    public void SettbgOff()
     {
-        UIbg.enabled = false;
+        SettBG.SetActive(false);
+    }
+    public void DeathbgOn()
+    {
+        DeathBG.SetActive(true);
+    }
+    public void DeathbgOff()
+    {
+        DeathBG.SetActive(false);
     }   
 }

@@ -3,9 +3,13 @@ using static UnityEngine.Rendering.DebugUI.Table;
 
 public class playerLRMove : MonoBehaviour
 {
-    public playerDash dash;
 
+    [Header("이동 설정")]
     public float moveSpeed = 5f;
+
+    [Header("대쉬")]
+    [SerializeField] playerDash dash;
+
     Rigidbody2D rb;
     Animator anim;
     void Start()
@@ -16,11 +20,9 @@ public class playerLRMove : MonoBehaviour
 
     private void Move()
     {
-
         float horiz = Input.GetAxisRaw("Horizontal"); // -1, 0, 1
         rb.linearVelocity = new Vector2(horiz * moveSpeed, rb.linearVelocity.y);
 
-        
         Vector3 rot = transform.rotation.eulerAngles;
 
         if (horiz < 0)
@@ -34,18 +36,12 @@ public class playerLRMove : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (dash.isDash)
-        {
-            return;
-        }
+        if (dash.isDash) return;
     }
 
     void Update()
     {
-        if (dash.isDash)
-        {
-            return;
-        }
+        if (dash.isDash) return;
         Move();
 
         float horiz = Input.GetAxisRaw("Horizontal"); // -1, 0, 1
@@ -53,8 +49,8 @@ public class playerLRMove : MonoBehaviour
 
         if (horiz != 0)
         {
-                anim.SetBool("Idle", false);
-                anim.SetBool("Run", true);
+            anim.SetBool("Idle", false);
+            anim.SetBool("Run", true);
         }
         else
         {
