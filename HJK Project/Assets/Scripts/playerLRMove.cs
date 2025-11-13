@@ -5,7 +5,7 @@ public class playerLRMove : MonoBehaviour
 {
     public playerDash dash;
 
-    public float moveSpeed = 3f;
+    public float moveSpeed = 5f;
     Rigidbody2D rb;
     Animator anim;
     void Start()

@@ -176,10 +176,7 @@ public class SliderBar : MonoBehaviour
 
             StartCoroutine(DelayHP(hp.value, hpD.value));
             StartCoroutine(DelayStamina(stamina.value, staminaD.value));
-            if (!isRecovering)
-            {
                 StartCoroutine(RecoverStamina());
-            }
         }
     }
 }

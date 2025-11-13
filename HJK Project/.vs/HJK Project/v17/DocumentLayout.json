@@ -3,20 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\eight\\Documents\\GitHub\\HJK-project\\HJK Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1D6D334A-2EC7-E8E3-35BC-2BE04128E967}|Assembly-CSharp.csproj|c:\\users\\eight\\documents\\github\\hjk-project\\hjk project\\assets\\scripts\\sliderbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1D6D334A-2EC7-E8E3-35BC-2BE04128E967}|Assembly-CSharp.csproj|c:\\users\\eight\\documents\\github\\hjk-project\\hjk project\\assets\\scripts\\playerattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D6D334A-2EC7-E8E3-35BC-2BE04128E967}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playerattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D6D334A-2EC7-E8E3-35BC-2BE04128E967}|Assembly-CSharp.csproj|C:\\Users\\eight\\Documents\\GitHub\\HJK-project\\HJK Project\\assets\\scripts\\sliderbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1D6D334A-2EC7-E8E3-35BC-2BE04128E967}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\sliderbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1D6D334A-2EC7-E8E3-35BC-2BE04128E967}|Assembly-CSharp.csproj|C:\\Users\\eight\\Documents\\GitHub\\HJK-project\\HJK Project\\assets\\scripts\\buttonmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D6D334A-2EC7-E8E3-35BC-2BE04128E967}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\buttonmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1D6D334A-2EC7-E8E3-35BC-2BE04128E967}|Assembly-CSharp.csproj|C:\\Users\\eight\\Documents\\GitHub\\HJK-project\\HJK Project\\assets\\scripts\\tutorialmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D6D334A-2EC7-E8E3-35BC-2BE04128E967}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tutorialmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1D6D334A-2EC7-E8E3-35BC-2BE04128E967}|Assembly-CSharp.csproj|C:\\Users\\eight\\Documents\\GitHub\\HJK-project\\HJK Project\\assets\\scripts\\playerlrmove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D6D334A-2EC7-E8E3-35BC-2BE04128E967}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playerlrmove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1D6D334A-2EC7-E8E3-35BC-2BE04128E967}|Assembly-CSharp.csproj|c:\\users\\eight\\documents\\github\\hjk-project\\hjk project\\assets\\scripts\\buttonmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D6D334A-2EC7-E8E3-35BC-2BE04128E967}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\buttonmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1D6D334A-2EC7-E8E3-35BC-2BE04128E967}|Assembly-CSharp.csproj|C:\\Users\\eight\\Documents\\GitHub\\HJK-project\\HJK Project\\assets\\scripts\\playerjump.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1D6D334A-2EC7-E8E3-35BC-2BE04128E967}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playerjump.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D6D334A-2EC7-E8E3-35BC-2BE04128E967}|Assembly-CSharp.csproj|C:\\Users\\eight\\Documents\\GitHub\\HJK-project\\HJK Project\\assets\\scripts\\playerlrmove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D6D334A-2EC7-E8E3-35BC-2BE04128E967}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playerlrmove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1D6D334A-2EC7-E8E3-35BC-2BE04128E967}|Assembly-CSharp.csproj|C:\\Users\\eight\\Documents\\GitHub\\HJK-project\\HJK Project\\assets\\scripts\\playerdash.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -30,47 +38,74 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "playerAttack.cs",
+              "DocumentMoniker": "C:\\Users\\eight\\Documents\\GitHub\\HJK-project\\HJK Project\\Assets\\Scripts\\playerAttack.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\playerAttack.cs",
+              "ToolTip": "C:\\Users\\eight\\Documents\\GitHub\\HJK-project\\HJK Project\\Assets\\Scripts\\playerAttack.cs",
+              "RelativeToolTip": "Assets\\Scripts\\playerAttack.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvxAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T05:41:41.984Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TutorialManager.cs",
+              "DocumentMoniker": "C:\\Users\\eight\\Documents\\GitHub\\HJK-project\\HJK Project\\Assets\\Scripts\\TutorialManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\TutorialManager.cs",
+              "ToolTip": "C:\\Users\\eight\\Documents\\GitHub\\HJK-project\\HJK Project\\Assets\\Scripts\\TutorialManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\TutorialManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T05:01:47.931Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "ButtonManager.cs",
               "DocumentMoniker": "C:\\Users\\eight\\Documents\\GitHub\\HJK-project\\HJK Project\\Assets\\Scripts\\ButtonManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\ButtonManager.cs",
               "ToolTip": "C:\\Users\\eight\\Documents\\GitHub\\HJK-project\\HJK Project\\Assets\\Scripts\\ButtonManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\ButtonManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvxQAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T14:23:07.695Z"
+              "WhenOpened": "2025-11-03T14:23:07.695Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "playerLRMove.cs",
               "DocumentMoniker": "C:\\Users\\eight\\Documents\\GitHub\\HJK-project\\HJK Project\\Assets\\Scripts\\playerLRMove.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\playerLRMove.cs",
               "ToolTip": "C:\\Users\\eight\\Documents\\GitHub\\HJK-project\\HJK Project\\Assets\\Scripts\\playerLRMove.cs",
               "RelativeToolTip": "Assets\\Scripts\\playerLRMove.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAADwv0EAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAADwvx4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-29T05:27:16.395Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "playerJump.cs",
               "DocumentMoniker": "C:\\Users\\eight\\Documents\\GitHub\\HJK-project\\HJK Project\\Assets\\Scripts\\playerJump.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\playerJump.cs",
               "ToolTip": "C:\\Users\\eight\\Documents\\GitHub\\HJK-project\\HJK Project\\Assets\\Scripts\\playerJump.cs",
               "RelativeToolTip": "Assets\\Scripts\\playerJump.cs",
-              "ViewState": "AgIAAEMAAAAAAAAAAAASwEEAAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAADcAAAAAAAAAAAASwEgAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-29T05:21:24.238Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "playerDash.cs",
               "DocumentMoniker": "C:\\Users\\eight\\Documents\\GitHub\\HJK-project\\HJK Project\\Assets\\Scripts\\playerDash.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\playerDash.cs",
@@ -82,13 +117,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "SliderBar.cs",
               "DocumentMoniker": "C:\\Users\\eight\\Documents\\GitHub\\HJK-project\\HJK Project\\Assets\\Scripts\\SliderBar.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\SliderBar.cs",
               "ToolTip": "C:\\Users\\eight\\Documents\\GitHub\\HJK-project\\HJK Project\\Assets\\Scripts\\SliderBar.cs",
               "RelativeToolTip": "Assets\\Scripts\\SliderBar.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAADwv4wAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-28T05:46:12.277Z",
               "EditorCaption": ""
